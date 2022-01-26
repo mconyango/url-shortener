@@ -22,7 +22,8 @@ GET_ITEM_BY_CODE_QUERY = """
 """
 GET_ALL_ITEMS_QUERY = """
     SELECT id, original_url, url_code, created_at  
-    FROM item;  
+    FROM item
+    ORDER BY id DESC;  
 """
 
 
