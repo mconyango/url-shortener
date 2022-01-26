@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import config from "./config.json"
 
 class Form extends Component {
     initialState = {
@@ -14,25 +15,44 @@ class Form extends Component {
         })
     }
 
-    submitForm = () => {
-        this.props.handleSubmit(this.state)
-        this.setState(this.initialState)
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        const {original_url,} = this.state;
+        try {
+            let res = await fetch(config.SERVER_URL, {
+                method: "POST",
+                body: JSON.stringify({new_item: {original_url: original_url}}),
+                mode: "cors"
+            });
+            let resJson = await res.json();
+            console.log(resJson)
+            if (res.status === 201) {
+                this.setState(this.initialState)
+                //reload the table
+            } else {
+                // error occurred.
+            }
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     render() {
         const {original_url,} = this.state;
 
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <label htmlFor="original_url">Shorten Your Link</label>
                 <input
-                    type="text"
+                    type="url"
                     name="original_url"
                     id="original_url"
                     value={original_url}
+                    required="required"
+                    placeholder="e.g https://wwww.twitter.com"
                     onChange={this.handleChange}/>
 
-                <input type="button" value="Shorten" onClick={this.submitForm}/>
+                <input type="submit" value="Shorten"/>
             </form>
         );
     }

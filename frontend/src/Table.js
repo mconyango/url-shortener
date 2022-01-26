@@ -5,7 +5,7 @@ const TableHeader = () => {
         <tr>
             <th>Original URL</th>
             <th>Shortened URL</th>
-            <th>Delete</th>
+            <th>&nbsp;</th>
         </tr>
         </thead>
     )
@@ -13,15 +13,15 @@ const TableHeader = () => {
 
 //simple component
 const TableBody = (props) => {
-    const rows = props.urlItems.map((row, index) => {
+    const rows = props.items.map((row, index) => {
         return (
             <tr key={index}>
                 <td>{row.original_url}</td>
-                <td>{row.shortened_url}</td>
+                <td>{row.original_url}</td>
                 <td>
                     <button onClick={() => {
                         props.removeItem(index)
-                    }}>Delete
+                    }}>Remove
                     </button>
                 </td>
             </tr>
@@ -35,7 +35,7 @@ const Table = (props) => {
     return (
         <table>
             <TableHeader/>
-            <TableBody urlItems={urlItems} removeItem={removeItem}/>
+            <TableBody items={urlItems} removeItem={removeItem}/>
         </table>
     )
 }
