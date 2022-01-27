@@ -37,7 +37,7 @@ const TableBody = (props) => {
 const Table = (props) => {
     const {urlItems, removeItem} = props
     return (
-        <table style={{marginTop: "20px"}}>
+        <table role="table" style={{marginTop: "20px"}}>
             <TableHeader/>
             <TableBody items={urlItems} removeItem={removeItem}/>
         </table>

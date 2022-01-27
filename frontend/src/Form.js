@@ -46,7 +46,7 @@ class Form extends Component {
         const {original_url,} = this.state;
 
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form role="form" onSubmit={this.handleSubmit}>
                 <div className="flex-row">
                     <div className="flex-large" style={{flex: "0 0 calc(5 / 6 * 100%)"}}>
                         <input
