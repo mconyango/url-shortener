@@ -9,9 +9,3 @@ test('Form is loading', () => {
     const formElement = screen.getByRole("form");
     expect(formElement).toBeInTheDocument();
 })
-
-test('Form snapshot', () => {
-    const {asFragment} = render(<Form/>)
-
-    expect(asFragment(<Form/>)).toMatchSnapshot()
-})
