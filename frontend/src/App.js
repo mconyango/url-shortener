@@ -14,7 +14,7 @@ class App extends Component {
         this.loadData()
     }
 
-    removeItem = (index) => {
+    removeItemOld = (index) => {
         const {url_items} = this.state
 
         this.setState({
@@ -22,6 +22,24 @@ class App extends Component {
                 return i !== index
             }),
         })
+    }
+
+    removeItem = async (item_id) => {
+        const delete_url = config.SERVER_URL + item_id
+        try {
+            let res = await fetch(delete_url, {
+                method: "DELETE"
+            });
+            if (res.status === 200) {
+                this.setState(this.initialState)
+                //reload the table
+                this.loadData()
+            } else {
+                // error occurred.
+            }
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     loadData = () => {

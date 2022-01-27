@@ -23,10 +23,10 @@ const TableBody = (props) => {
                     <a href={shortened_url} target="_blank" rel="noreferrer">{shortened_url}</a>
                 </td>
                 <td>
-                    <button onClick={() => {
-                        props.removeItem(index)
-                    }}>Remove
-                    </button>
+                    <a href={"#"} style={{color:"#d33c40"}} onClick={() => {
+                        props.removeItem(row.id)
+                    }}>X
+                    </a>
                 </td>
             </tr>
         )
@@ -37,7 +37,7 @@ const TableBody = (props) => {
 const Table = (props) => {
     const {urlItems, removeItem} = props
     return (
-        <table>
+        <table style={{marginTop: "20px"}}>
             <TableHeader/>
             <TableBody items={urlItems} removeItem={removeItem}/>
         </table>

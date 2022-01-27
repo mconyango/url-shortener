@@ -47,17 +47,21 @@ class Form extends Component {
 
         return (
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor="original_url">Shorten Your Link</label>
-                <input
-                    type="url"
-                    name="original_url"
-                    id="original_url"
-                    value={original_url}
-                    required="required"
-                    placeholder="e.g https://wwww.twitter.com"
-                    onChange={this.handleChange}/>
-
-                <input type="submit" value="Shorten"/>
+                <div className="flex-row">
+                    <div className="flex-large" style={{flex: "0 0 calc(5 / 6 * 100%)"}}>
+                        <input
+                            type="url"
+                            name="original_url"
+                            id="original_url"
+                            value={original_url}
+                            required="required"
+                            placeholder="e.g https://getbootstrap.com/docs/5.1/forms/overview"
+                            onChange={this.handleChange}/>
+                    </div>
+                    <div className="flex-large" style={{flex: "0 0 calc(1 / 6 * 100%)"}}>
+                        <input type="submit" value="Shorten"/>
+                    </div>
+                </div>
             </form>
         );
     }

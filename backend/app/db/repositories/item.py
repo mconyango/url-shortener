@@ -75,6 +75,6 @@ class ItemRepository(BaseRepository):
             return None
         deleted_id = await self.db.execute(
             query=DELETE_ITEM_BY_ID_QUERY,
-            values={"id": id},
+            values={"id": item_id},
         )
         return deleted_id

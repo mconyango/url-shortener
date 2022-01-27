@@ -1,6 +1,6 @@
 from typing import List
 
-from fastapi import APIRouter, Body, Depends, HTTPException
+from fastapi import APIRouter, Body, Depends, HTTPException, Path
 from starlette import status
 from starlette.responses import RedirectResponse
 from starlette.status import HTTP_201_CREATED, HTTP_404_NOT_FOUND
@@ -36,7 +36,7 @@ async def get_item_by_code(item_code: str,
     return RedirectResponse(url=item.original_url, status_code=status.HTTP_303_SEE_OTHER)
 
 
-@router.delete("/{item_id}/", response_model=int, summary="Delete a created URL item")
+@router.delete("/{item_id}/", summary="Delete a created URL item")
 async def delete_item_by_id(
         item_id: int,
         items_repo: ItemRepository = Depends(get_repository(ItemRepository)),
