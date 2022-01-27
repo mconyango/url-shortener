@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from .endpoints.item import router as cleanings_router
+from app.api.v1.endpoints.item import router as items_router
 
 router = APIRouter()
-router.include_router(cleanings_router, tags=["URL Items"])
+router.include_router(items_router, tags=["URL Items"])
 # api_router.include_router(login.router,prefix="/users", tags=["login"])

@@ -23,7 +23,7 @@ const TableBody = (props) => {
                     <a href={shortened_url} target="_blank" rel="noreferrer">{shortened_url}</a>
                 </td>
                 <td>
-                    <button style={{background:"red",border:"none",padding:"3px 5px"}} onClick={() => {
+                    <button style={{background: "red", border: "none", padding: "5px 5px 0px 5px"}} onClick={() => {
                         props.removeItem(row.id)
                     }}>X
                     </button>

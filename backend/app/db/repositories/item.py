@@ -2,8 +2,8 @@ import datetime
 from hashlib import md5
 from typing import List
 
-from .base import BaseRepository
-from ...schemas.item import ItemCreate, ItemInPublic, ItemInDB
+from app.db.repositories.base import BaseRepository
+from app.schemas.item import ItemCreate, ItemInPublic, ItemInDB
 
 CREATE_ITEM_QUERY = """
     INSERT INTO item (original_url, url_code,created_at)

@@ -1,7 +1,7 @@
 from typing import Any
 from pydantic import HttpUrl
 
-from .core import IDModelMixin, CoreModel
+from app.schemas.core import IDModelMixin, CoreModel
 
 
 # Shared properties
