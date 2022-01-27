@@ -1,3 +1,5 @@
 node_modules
 .dockerignore
 Dockerfile
+package-lock.json
+yarn.lock
