@@ -21,14 +21,19 @@ class Form extends Component {
         try {
             let res = await fetch(config.SERVER_URL, {
                 method: "POST",
-                body: JSON.stringify({new_item: {original_url: original_url}}),
-                mode: "cors"
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    original_url: original_url
+                }),
             });
             let resJson = await res.json();
             console.log(resJson)
             if (res.status === 201) {
                 this.setState(this.initialState)
                 //reload the table
+                this.props.reloadData()
             } else {
                 // error occurred.
             }

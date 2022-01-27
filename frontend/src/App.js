@@ -11,6 +11,20 @@ class App extends Component {
     }
 
     componentDidMount() {
+        this.loadData()
+    }
+
+    removeItem = (index) => {
+        const {url_items} = this.state
+
+        this.setState({
+            url_items: url_items.filter((item, i) => {
+                return i !== index
+            }),
+        })
+    }
+
+    loadData = () => {
         fetch(config.SERVER_URL)
             .then(res => res.json())
             .then(
@@ -32,16 +46,6 @@ class App extends Component {
             )
     }
 
-    removeItem = (index) => {
-        const {url_items} = this.state
-
-        this.setState({
-            url_items: url_items.filter((item, i) => {
-                return i !== index
-            }),
-        })
-    }
-
     render() {
         const {error, isLoaded, url_items} = this.state;
         if (error) {
@@ -52,7 +56,7 @@ class App extends Component {
             return (
                 <div className="container">
                     <h1>URL Shortener</h1>
-                    <Form handleSubmit={this.handleSubmit}/>
+                    <Form handleSubmit={this.handleSubmit} reloadData={this.loadData}/>
                     <Table urlItems={url_items} removeItem={this.removeItem}/>
                 </div>
             )

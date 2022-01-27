@@ -1,3 +1,4 @@
+import config from "./config.json";
 //simple component
 const TableHeader = () => {
     return (
@@ -14,10 +15,13 @@ const TableHeader = () => {
 //simple component
 const TableBody = (props) => {
     const rows = props.items.map((row, index) => {
+        const shortened_url = config.SERVER_URL + row.url_code
         return (
             <tr key={index}>
                 <td>{row.original_url}</td>
-                <td>{row.original_url}</td>
+                <td>
+                    <a href={shortened_url} target="_blank" rel="noreferrer">{shortened_url}</a>
+                </td>
                 <td>
                     <button onClick={() => {
                         props.removeItem(index)

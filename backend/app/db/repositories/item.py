@@ -25,6 +25,11 @@ GET_ALL_ITEMS_QUERY = """
     FROM item
     ORDER BY id DESC;  
 """
+DELETE_ITEM_BY_ID_QUERY = """
+    DELETE FROM item  
+    WHERE id = :id  
+    RETURNING id;  
+"""
 
 
 class ItemRepository(BaseRepository):
@@ -32,9 +37,9 @@ class ItemRepository(BaseRepository):
     All database actions associated with the item resource
     """
 
-    async def create_item(self, *, new_item: ItemCreate) -> ItemInPublic:
+    async def create_item(self, new_item: ItemCreate) -> ItemInPublic:
         query_values = new_item.dict()
-        url_code = md5(new_item.original_url.encode()).hexdigest()[:8]
+        url_code = md5(new_item.original_url.encode()).hexdigest()[:6]
         query_values['url_code'] = url_code
         query_values['created_at'] = datetime.datetime.utcnow()
         item = await self.db.fetch_one(query=CREATE_ITEM_QUERY, values=query_values)
@@ -63,3 +68,13 @@ class ItemRepository(BaseRepository):
             query=GET_ALL_ITEMS_QUERY,
         )
         return [ItemInPublic(**l) for l in url_items]
+
+    async def delete_item_by_id(self, *, item_id: int) -> (int, None):
+        item = await self.get_item_by_id(item_id=item_id)
+        if not item:
+            return None
+        deleted_id = await self.db.execute(
+            query=DELETE_ITEM_BY_ID_QUERY,
+            values={"id": id},
+        )
+        return deleted_id
