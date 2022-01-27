@@ -1,9 +1,10 @@
-version: '3.3'
+version: '3.7'
 services:
-  server:
+  backend:
+    image: url-shortener-backend
     build:
       context: ./backend
-      dockerfile: backend.dockerfile
+      dockerfile: Dockerfile
     volumes:
       - ./backend/:/backend/
     command: bash -c "alembic upgrade head && uvicorn app.api.v1.server:app --reload --workers 1 --host 0.0.0.0 --port 8000"
@@ -13,6 +14,16 @@ services:
       - 8000:8000
     depends_on:
       - db
+  frontend:
+    image: url-shortener-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend/:/frontend/app
+      - /frontend/app/node_modules
+    ports:
+      - 3000:3000
   db:
     image: postgres:13-alpine
     volumes:
