@@ -55,7 +55,7 @@ class Form extends Component {
                             id="original_url"
                             value={original_url}
                             required="required"
-                            placeholder="e.g https://getbootstrap.com/docs/5.1/forms/overview"
+                            placeholder="Copy and Paste a URL here e.g https://getbootstrap.com/docs/5.1/forms/overview"
                             onChange={this.handleChange}/>
                     </div>
                     <div className="flex-large" style={{flex: "0 0 calc(1 / 6 * 100%)"}}>
