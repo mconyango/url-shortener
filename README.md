@@ -18,3 +18,4 @@
 ####Interacting with the database
 ```sudo docker-compose exec db psql -h localhost -U postgres --dbname=postgres```
 
+We run our tests by executing the command pytest -v inside the container hosting our FastAPI server. Get the container id by running docker ps, and execute bash commands interactively with docker exec -it [CONTAINER_ID] bash.
