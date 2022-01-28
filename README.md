@@ -1,21 +1,57 @@
-##Dependencies:
-1. Docker
-2. Docker-compose
+### Introduction
+URL Shortener App is a simple web application for shortening long URL. The back-end API is using Python (FastAPI) and the front-end is using React Js
 
-##INSTALLATION
+###Installation Instructions:
+#### Dependencies
+The dependencies for building and running this app are:
+* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - for retrieving the source code from a source code versioning repository.
+* [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) - for building and deploying the URL Shortener instance.
+* [Docker-compose](https://docs.docker.com/compose/install/) - also for building and deploying the app.
+ 
+#### Obtaining the Source Code
+After installing git, you will be able to clone the current version of this app from this repo, using:
 
-####To build the appropriate Docker container, run the following from your terminal:
-```sudo docker-compose up -d --build```
+```
+git clone https://github.com/mconyango/url-shortener.git
+```
+### Build and Run on your local machine
+After obtaining the source code, to build and start the application, simply run (from within the main project folder):
+```
+sudo docker-compose up -d --build
+```
+It might take a few minutes to build the app. When it's done building, enter your container with:
+```
+sudo docker-compose up
+```
 
-####When it's done building, enter your container with:
-```sudo docker-compose up```
+That's it. If everything works then you can now access the app on your favorite browser:
 
-####Open up your favorite browser and go to localhost:8000
+####To access the app, open up your favorite browser and go to http://localhost:8000
+####To access the api docs, open up your favorite browser and go to http://localhost:3000
+### Running Tests
+#### Back-end tests
+In order to run back-end tests on your machine you need to first log into the backend container hosting the backend service. 
 
-#### run this command to see the list of running Docker processes
-```sudo docker ps```
-
-####Interacting with the database
-```sudo docker-compose exec db psql -h localhost -U postgres --dbname=postgres```
-
-We run our tests by executing the command pytest -v inside the container hosting our FastAPI server. Get the container id by running docker ps, and execute bash commands interactively with docker exec -it [CONTAINER_ID] bash.
+1. Run this command to see the list of running Docker processes
+   ```
+   sudo docker ps
+   ```
+2. Then get the CONTAINER_ID corresponding to <b>url-shortener-backend</b> image. Run this command to get into the container:
+   ```
+   sudo docker exec -t <CONTAINER_ID> bash
+   ```
+3. Once inside the container, execute this command to run the tests:
+   ```
+   pytest -v
+   ```
+#### Front-end tests
+In order to run front-end tests on your machine you need to install the latest stable version of nodejs. If nodejs is already installed on your machine then you can skip this step.
+* [NodeJs](https://nodejs.org/en/download/) - Install NodeJs.
+* Run this command inside the frontend directory
+  ```
+  npm install
+  ```
+* Then run
+  ```
+  npm test
+  ```
