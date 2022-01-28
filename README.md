@@ -1,7 +1,7 @@
 ### Introduction
 URL Shortener App is a simple web application for shortening a long URL. The back-end API is using Python (FastAPI) and the front-end is using React Js
 
-### Installation Instructions:
+### Installation Instructions
 #### Dependencies
 The dependencies for building and running this app are:
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - for retrieving the source code from a source code versioning repository.
@@ -45,8 +45,8 @@ In order to run back-end tests on your machine you need to first log into the co
    pytest -v
    ```
 #### Front-end tests
-In order to run front-end tests on your machine you need to install the latest stable version of nodejs. If nodejs is already installed on your machine then you can skip this step.
-* [NodeJs](https://nodejs.org/en/download/) - Install NodeJs.
+In order to run front-end tests on your machine you need to install the latest stable version of nodejs.
+* [NodeJs](https://nodejs.org/en/download/) - Install NodeJs. (If nodejs is already installed on your machine then you can skip this step)
 * Run this command inside the front-end directory
   ```
   npm install
