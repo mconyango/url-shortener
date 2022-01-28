@@ -26,8 +26,8 @@ sudo docker-compose up
 
 That's it. If everything works then you can now access the app on your favorite browser:
 
-#### To access the app, open up your favorite browser and go to http://localhost:3000
-#### To access the api docs, open up your favorite browser and go to http://localhost:8000/docs
+#### To access the app, go to http://localhost:3000
+#### To access the api docs, go to http://localhost:8000/docs
 ### Running Tests
 #### Back-end tests
 In order to run back-end tests on your machine you need to first log into the container hosting the backend service. 
