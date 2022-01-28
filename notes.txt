@@ -4,3 +4,5 @@ URL Shortener app
 - Docker has been used to automate building and running the app.
 
 See README.md for instructions on how to install, build and run the application.
+
+I have used Linux Ubuntu 20.04 environment for development and testing.
