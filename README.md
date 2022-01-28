@@ -30,28 +30,12 @@ That's it. If everything works then you can now access the app on your favorite 
 #### To access the api docs, go to http://localhost:8000/docs
 ### Running Tests
 #### Back-end tests
-In order to run back-end tests on your machine you need to first log into the container hosting the backend service. 
-
-* Run this command to see the list of running Docker processes
+Run this command:
    ```
-   sudo docker ps
-   ```
-* Then get the CONTAINER_ID corresponding to <b>url-shortener-backend</b> image. Run this command to get into the container:
-   ```
-   sudo docker exec -t <CONTAINER_ID> bash
-   ```
-* Once inside the container, execute this command to run the tests:
-   ```
-   pytest -v
+   sudo docker-compose exec backend pytest -v
    ```
 #### Front-end tests
-In order to run front-end tests on your machine you need to install the latest stable version of nodejs.
-* [NodeJs](https://nodejs.org/en/download/) - Install NodeJs. (If nodejs is already installed on your machine then you can skip this step)
-* Run this command inside the front-end directory
+Run this command:
   ```
-  npm install
-  ```
-* Then run
-  ```
-  npm test
+  sudo docker-compose exec frontend npm test
   ```
