@@ -1,0 +1,6 @@
+URL Shortener app
+- Back-end API uses Python (FastAPI)
+- Front-end uses ReactJs
+- Docker has been used to automate building and running the app.
+
+See README.md for instructions on how to install, build and run the application.
