@@ -47,7 +47,7 @@ In order to run back-end tests on your machine you need to first log into the co
 #### Front-end tests
 In order to run front-end tests on your machine you need to install the latest stable version of nodejs. If nodejs is already installed on your machine then you can skip this step.
 * [NodeJs](https://nodejs.org/en/download/) - Install NodeJs.
-* Run this command inside the frontend directory
+* Run this command inside the front-end directory
   ```
   npm install
   ```
