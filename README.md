@@ -14,7 +14,7 @@ After installing git, you will be able to clone the current version of this app 
 ```
 git clone https://github.com/mconyango/url-shortener.git
 ```
-### Build and Run on your local machine
+#### Build and Run on your local machine
 After obtaining the source code, to build and start the application, simply run (from within the main project folder):
 ```
 sudo docker-compose up -d --build
@@ -30,12 +30,12 @@ That's it. If everything works then you can now access the app on your favorite 
 #### To access the api docs, go to http://localhost:8000/docs
 ### Running Tests
 #### Back-end tests
-Run this command:
+Run this command from the project root directory:
    ```
    sudo docker-compose exec backend pytest -v
    ```
 #### Front-end tests
-Run this command:
+Run this command from the project root directory:
   ```
   sudo docker-compose exec frontend npm test
   ```
