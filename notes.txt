@@ -1,8 +1,9 @@
-URL Shortener app
+Technologies used to develop URL Shortener app:
 - Back-end API uses Python (FastAPI)
 - Front-end uses ReactJs
+- Postgres DB has been used for persistent data storage
 - Docker has been used to automate building and running the app.
 
 See README.md for instructions on how to install, build and run the application.
 
-I have used Linux Ubuntu 20.04 environment for development and testing.
+Linux Ubuntu 20.04 environment was used for development and testing. It has also been successfully tested on Windows 10 machine.
