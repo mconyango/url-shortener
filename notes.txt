@@ -6,4 +6,4 @@ Technologies used to develop URL Shortener app:
 
 See README.md for instructions on how to install, build and run the application.
 
-Linux Ubuntu 20.04 environment was used for development and testing. It has also been successfully tested on Windows 10 machine.
+Linux Ubuntu 20.04 environment was used for development and testing. It has also been successfully tested on a Windows 10 machine.
