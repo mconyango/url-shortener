@@ -21,7 +21,7 @@ sudo docker-compose up -d --build
 ```
 It might take a few minutes to build the app. When it's done building, enter your container with:
 ```
-sudo docker-compose up
+sudo docker-compose up -d
 ```
 
 That's it. If everything works then you can now access the app on your favorite browser:
