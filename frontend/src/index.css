@@ -967,6 +967,10 @@ textarea.has-error:active {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 6px #f4cecf;
 }
 
+p.error-message{
+    color: #d33c40;
+}
+
 input.is-success, input.is-success:hover, input.is-success:focus, input.is-success:active,
 select.is-success,
 select.is-success:hover,

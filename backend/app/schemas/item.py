@@ -1,5 +1,5 @@
 from typing import Any
-from pydantic import HttpUrl
+from pydantic import AnyHttpUrl
 
 from app.schemas.core import IDModelMixin, CoreModel
 
@@ -9,7 +9,7 @@ class ItemBase(CoreModel):
     """
     All common characteristics of item resource
     """
-    original_url: HttpUrl
+    original_url: AnyHttpUrl
 
 
 # Properties to receive on item creation
