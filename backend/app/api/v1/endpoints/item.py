@@ -12,7 +12,7 @@ from app.schemas.item import ItemCreate, ItemInPublic
 router = APIRouter()
 
 
-@router.get("/", summary='get all shortened URLs', name='list-url-items')
+@router.get("/", response_model=List[ItemInPublic], summary='get all shortened URLs', name='list-url-items')
 async def get_urls(items_repo: ItemRepository = Depends(get_repository(ItemRepository))) -> List[ItemInPublic]:
     return await items_repo.get_all_items()
 
