@@ -12,6 +12,9 @@ ENV PYTHONUNBUFFERED 1
 #COPY requirements.txt .
 COPY ./requirements.txt /code/requirements.txt
 RUN pip install --upgrade pip
+RUN apt-get update \
+    && apt-get -y install libpq-dev gcc \
+    && pip install psycopg2
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 #RUN pip install -r requirements.txt
 # copy project
